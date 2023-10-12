@@ -1,10 +1,6 @@
-{% extends 'base.html' %}
-
-{% block title %}
-Авторизоваться
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}
+  Авторизоваться
+{% endblock %} {% block content %}
   <h1>Авторизоваться</h1>
   {% if form.errors %}
     <p>Ваше имя пользователя и пароль не совпадали. Пожалуйста, попробуйте еще раз.</p>
@@ -13,11 +9,10 @@
   {% endif %}
   <div class="login-form">
     <form action="{% url 'login' %}" method="post">
-      {{ form.as_p }}
-      {% csrf_token %}
+      {{ form.as_p }} {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}" />
       <p>
-        <input type="submit" value="Log-in" />
+        <input type="submit" value="Войти" />
       </p>
     </form>
   </div>
