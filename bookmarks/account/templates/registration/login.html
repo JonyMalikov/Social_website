@@ -1,22 +1,24 @@
 {% extends 'base.html' %} {% block title %}
-  Авторизоваться
+Авторизоваться
 {% endblock %} {% block content %}
-  <h1>Авторизоваться</h1>
-  {% if form.errors %}
-    <p>Ваше имя пользователя и пароль не совпадали. Пожалуйста, попробуйте еще раз.</p>
-  {% else %}
-    <p>Пожалуйста, используйте следующую форму для входа:</p>
-  {% endif %}
-  <div class="login-form">
+<h1>Авторизоваться</h1>
+{% if form.errors %}
+<p>Ваше имя пользователя и пароль не совпадали. Пожалуйста, попробуйте еще раз.</p>
+{% else %}
+<p>Пожалуйста, используйте следующую форму для входа:</p>
+{% endif %}
+<div class="login-form">
     <form action="{% url 'login' %}" method="post">
-      {{ form.as_p }} {% csrf_token %}
-      <input type="hidden" name="next" value="{{ next }}" />
-      <p>
-        <input type="submit" value="Войти" />
-      </p>
+        {{ form.as_p }} {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <p>
+            <input type="submit" value="Войти"/>
+        </p>
     </form>
     <p>
-      <a href="{% url 'Восстаноить пароль' %}">Забыли пароль?</a>
+        <a href="{% url "password_reset" %}">
+        Забыли пароль?
+
     </p>
-  </div>
+</div>
 {% endblock %}
