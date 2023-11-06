@@ -13,9 +13,7 @@ class UserRegistrationForm(forms.ModelForm):
     """форма регистрации пользователя"""
 
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput)
-    password2 = forms.CharField(
-        label="Повторите пароль", widget=forms.PasswordInput
-    )
+    password2 = forms.CharField(label="Повторите пароль", widget=forms.PasswordInput)
 
     class Meta:
         model = User
