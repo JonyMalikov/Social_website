@@ -1,5 +1,22 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import Profile
+
+
+class UserEditForm(forms.ModelForm):
+    """форма редактирования пользователя"""
+
+    class Meta:
+        model = User
+        fields = ["first_name", "last_name", "email"]
+
+
+class ProfileEditForm(forms.ModelForm):
+    """форма редактирования профиля"""
+
+    class Meta:
+        model = Profile
+        fields = ["date_of_birth", "photo"]
 
 
 class LoginForm(forms.Form):
@@ -13,7 +30,9 @@ class UserRegistrationForm(forms.ModelForm):
     """форма регистрации пользователя"""
 
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Повторите пароль", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Повторите пароль", widget=forms.PasswordInput
+    )
 
     class Meta:
         model = User
