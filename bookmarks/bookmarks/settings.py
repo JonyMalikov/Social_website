@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "social_django",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "account.authentication.EmailAuthBackend",
+    "social_core.backends.google.GoogleOAuth2",
 ]
 
 
@@ -104,3 +106,6 @@ LOGIN_REDIRECT_URL = "dashboard"
 LOGIN_URL = "login"
 LOGOUT_URL = "logout"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "XXX"  # ИД клиента Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "XXX"  # Секрет клиента Google
