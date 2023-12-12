@@ -20,6 +20,12 @@ class Image(models.Model):
     )
     description = models.TextField(blank=True, verbose_name="описание")
     created = models.DateField(auto_now_add=True, verbose_name="создан")
+    user_like = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="images_liked",
+        blank=True,
+        verbose_name="лайкнул",
+    )
 
     class Meta:
         verbose_name = "изображение"
